@@ -92,7 +92,7 @@ function ScanFood() {
 
 
             const response = await fetch(
-                "http://localhost:5001/api/scan",
+                `${import.meta.env.VITE_API_URL}/api/scan`,
                 {
                     method: "POST",
 

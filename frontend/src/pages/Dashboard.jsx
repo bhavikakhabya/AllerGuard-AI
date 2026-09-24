@@ -83,7 +83,7 @@ function Dashboard() {
                 // =========================
 
                 const profileResponse = await fetch(
-                    "http://localhost:5001/api/profile",
+                    `${import.meta.env.VITE_API_URL}/api/profile`,
                     {
                         headers: {
                             Authorization:
@@ -130,7 +130,7 @@ function Dashboard() {
                 // Food history
                 const historyResponse =
                     await fetch(
-                        "http://localhost:5001/api/history",
+                        `${import.meta.env.VITE_API_URL}/api/history`,
                         {
                             headers
                         }
@@ -140,7 +140,7 @@ function Dashboard() {
                 // OCR history
                 const ocrHistoryResponse =
                     await fetch(
-                        "http://localhost:5001/api/ocr/history",
+                        `${import.meta.env.VITE_API_URL}/api/ocr/history`,
                         {
                             headers
                         }

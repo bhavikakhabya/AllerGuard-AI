@@ -56,7 +56,7 @@ function AllergyProfile() {
 
 
                 const response = await fetch(
-                    "http://localhost:5001/api/profile/allergies",
+                    `${import.meta.env.VITE_API_URL}/api/profile/allergies`,
                     {
                         headers: {
                             Authorization:
@@ -229,7 +229,7 @@ function AllergyProfile() {
 
 
             const response = await fetch(
-                "http://localhost:5001/api/profile/allergies",
+                `${import.meta.env.VITE_API_URL}/api/profile/allergies`,
                 {
                     method: "PUT",
 

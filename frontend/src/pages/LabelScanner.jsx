@@ -70,7 +70,7 @@ function LabelScanner() {
             formData.append("file", image);
 
             const response = await fetch(
-                "http://localhost:5001/api/ocr",
+                `${import.meta.env.VITE_API_URL}/api/ocr`,
                 {
                     method: "POST",
                     headers: {

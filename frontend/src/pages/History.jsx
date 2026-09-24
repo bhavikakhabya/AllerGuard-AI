@@ -43,7 +43,7 @@ function History() {
 
                 // FOOD SCANS
                 const foodResponse = await fetch(
-                    "http://localhost:5001/api/history",
+                    `${import.meta.env.VITE_API_URL}/api/history`,
                     {
                         headers
                     }
@@ -51,7 +51,7 @@ function History() {
 
                 // OCR SCANS
                 const ocrResponse = await fetch(
-                    "http://localhost:5001/api/ocr/history",
+                    `${import.meta.env.VITE_API_URL}/api/ocr/history`,
                     {
                         headers
                     }

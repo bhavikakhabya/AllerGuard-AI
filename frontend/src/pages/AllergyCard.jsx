@@ -23,7 +23,7 @@ export default function AllergyCard() {
                 const token = localStorage.getItem("token");
 
                 const response = await fetch(
-                    "http://localhost:5001/api/profile",
+                    `${import.meta.env.VITE_API_URL}/api/profile`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
