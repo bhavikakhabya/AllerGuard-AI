@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
-import API_BASE from "../services/api";
 
 
 function AllergyProfile() {
@@ -57,7 +56,7 @@ function AllergyProfile() {
 
 
                 const response = await fetch(
-                    `${API_BASE}/api/profile/allergies`,
+                    "http://localhost:5001/api/profile/allergies",
                     {
                         headers: {
                             Authorization:
@@ -230,7 +229,7 @@ function AllergyProfile() {
 
 
             const response = await fetch(
-                `${API_BASE}/api/profile/allergies`,
+                "http://localhost:5001/api/profile/allergies",
                 {
                     method: "PUT",
 

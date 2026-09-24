@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FoodDecor from "../components/FoodDecor";
-import API_BASE from "../services/api";
 
 function Login() {
 
@@ -17,7 +16,7 @@ function Login() {
         try {
 
             const response = await fetch(
-                `${API_BASE}/api/auth/login`,
+                "http://localhost:5001/api/auth/login",
                 {
                     method: "POST",
 

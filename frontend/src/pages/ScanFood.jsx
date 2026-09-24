@@ -10,7 +10,6 @@ import {
     Info
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import API_BASE from "../services/api";
 
 function ScanFood() {
 
@@ -93,7 +92,7 @@ function ScanFood() {
 
 
             const response = await fetch(
-                `${API_BASE}/api/scan`,
+                "http://localhost:5001/api/scan",
                 {
                     method: "POST",
 
@@ -765,30 +764,30 @@ function ScanFood() {
                     {result.risk?.riskLevel ===
                         "NO_KNOWN_MATCH" && (
 
-                        <div className="no-match-note">
+                            <div className="no-match-note">
 
-                            <ShieldCheck size={20} />
+                                <ShieldCheck size={20} />
 
-                            <div>
+                                <div>
 
-                                <strong>
-                                    No known match found
-                                </strong>
+                                    <strong>
+                                        No known match found
+                                    </strong>
 
-                                <p>
+                                    <p>
 
-                                    None of the currently
-                                    stored allergen matches
-                                    were identified in the
-                                    available ingredient data.
+                                        None of the currently
+                                        stored allergen matches
+                                        were identified in the
+                                        available ingredient data.
 
-                                </p>
+                                    </p>
+
+                                </div>
 
                             </div>
 
-                        </div>
-
-                    )}
+                        )}
 
 
                     {/* =========================

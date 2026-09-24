@@ -12,7 +12,6 @@ import {
     Sparkles
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import API_BASE from "../services/api";
 
 function LabelScanner() {
     const navigate = useNavigate();
@@ -71,7 +70,7 @@ function LabelScanner() {
             formData.append("file", image);
 
             const response = await fetch(
-                `${API_BASE}/api/ocr`,
+                "http://localhost:5001/api/ocr",
                 {
                     method: "POST",
                     headers: {

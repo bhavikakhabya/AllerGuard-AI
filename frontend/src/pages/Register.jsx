@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FoodDecor from "../components/FoodDecor";
-import API_BASE from "../services/api";
 
 function Register() {
 
@@ -18,7 +17,7 @@ function Register() {
         try {
 
             const response = await fetch(
-                `${API_BASE}/api/auth/register`,
+                "http://localhost:5001/api/auth/register",
                 {
                     method: "POST",
 

@@ -1,6 +1,5 @@
- import React, { useEffect, useState } from "react";
- import FoodDecor from "../components/FoodDecor";
-import API_BASE from "../services/api";
+import React, { useEffect, useState } from "react";
+import FoodDecor from "../components/FoodDecor";
 
 import {
     Camera,
@@ -84,7 +83,7 @@ function Dashboard() {
                 // =========================
 
                 const profileResponse = await fetch(
-                    `${API_BASE}/api/profile`,
+                    "http://localhost:5001/api/profile",
                     {
                         headers: {
                             Authorization:
@@ -131,7 +130,7 @@ function Dashboard() {
                 // Food history
                 const historyResponse =
                     await fetch(
-                        `${API_BASE}/api/history`,
+                        "http://localhost:5001/api/history",
                         {
                             headers
                         }
@@ -141,7 +140,7 @@ function Dashboard() {
                 // OCR history
                 const ocrHistoryResponse =
                     await fetch(
-                        `${API_BASE}/api/ocr/history`,
+                        "http://localhost:5001/api/ocr/history",
                         {
                             headers
                         }
@@ -185,13 +184,13 @@ function Dashboard() {
                 const foodHistory =
                     historyData.success
                         ? (
-                              historyData.history || []
-                          ).map(
-                              (scan) => ({
-                                  ...scan,
-                                  scanType: "food"
-                              })
-                          )
+                            historyData.history || []
+                        ).map(
+                            (scan) => ({
+                                ...scan,
+                                scanType: "food"
+                            })
+                        )
                         : [];
 
 
@@ -202,16 +201,16 @@ function Dashboard() {
                 const ocrHistory =
                     ocrHistoryData.success
                         ? (
-                              ocrHistoryData.history || []
-                          ).map(
-                              (scan) => ({
-                                  ...scan,
-                                  foodName:
-                                      "Food Label",
-                                  scanType:
-                                      "ocr"
-                              })
-                          )
+                            ocrHistoryData.history || []
+                        ).map(
+                            (scan) => ({
+                                ...scan,
+                                foodName:
+                                    "Food Label",
+                                scanType:
+                                    "ocr"
+                            })
+                        )
                         : [];
 
 
@@ -853,7 +852,7 @@ function Dashboard() {
                             <div className="latest-scan-food-icon">
 
                                 {latestScan.scanType ===
-                                "ocr"
+                                    "ocr"
                                     ? "🏷️"
                                     : "🍛"}
 

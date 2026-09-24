@@ -8,7 +8,6 @@ import {
     CheckCircle2,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import API_BASE from "../services/api";
 import FoodDecor from "../components/FoodDecor";
 
 export default function AllergyCard() {
@@ -24,7 +23,7 @@ export default function AllergyCard() {
                 const token = localStorage.getItem("token");
 
                 const response = await fetch(
-                    `${API_BASE}/api/profile`,
+                    "http://localhost:5001/api/profile",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -62,11 +61,11 @@ export default function AllergyCard() {
     const allergyText =
         allergies.length > 0
             ? allergies
-                  .map(
-                      (allergy) =>
-                          `${allergy.name} — ${allergy.severity}`
-                  )
-                  .join("\n")
+                .map(
+                    (allergy) =>
+                        `${allergy.name} — ${allergy.severity}`
+                )
+                .join("\n")
             : "No allergies listed";
 
     const qrText = `ALLERGUARD AI

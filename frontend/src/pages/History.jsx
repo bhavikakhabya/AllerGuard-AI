@@ -10,7 +10,6 @@ import {
     Clock
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import API_BASE from "../services/api";
 
 function History() {
 
@@ -44,7 +43,7 @@ function History() {
 
                 // FOOD SCANS
                 const foodResponse = await fetch(
-                    `${API_BASE}/api/history`,
+                    "http://localhost:5001/api/history",
                     {
                         headers
                     }
@@ -52,7 +51,7 @@ function History() {
 
                 // OCR SCANS
                 const ocrResponse = await fetch(
-                    `${API_BASE}/api/ocr/history`,
+                    "http://localhost:5001/api/ocr/history",
                     {
                         headers
                     }
@@ -76,22 +75,22 @@ function History() {
                 const foodHistory =
                     foodData.success
                         ? (foodData.history || []).map(
-                              (scan) => ({
-                                  ...scan,
-                                  scanType: "food"
-                              })
-                          )
+                            (scan) => ({
+                                ...scan,
+                                scanType: "food"
+                            })
+                        )
                         : [];
 
                 const ocrHistory =
                     ocrData.success
                         ? (ocrData.history || []).map(
-                              (scan) => ({
-                                  ...scan,
-                                  scanType: "ocr",
-                                  foodName: "Food Label"
-                              })
-                          )
+                            (scan) => ({
+                                ...scan,
+                                scanType: "ocr",
+                                foodName: "Food Label"
+                            })
+                        )
                         : [];
 
                 const combinedHistory = [
@@ -416,11 +415,10 @@ function History() {
                                         {/* ICON */}
 
                                         <div
-                                            className={`history-food-icon ${
-                                                isOCR
+                                            className={`history-food-icon ${isOCR
                                                     ? "label-history-icon"
                                                     : "food-history-icon"
-                                            }`}
+                                                }`}
                                         >
 
                                             {isOCR ? (
@@ -445,11 +443,10 @@ function History() {
                                                 </h3>
 
                                                 <span
-                                                    className={`scan-type ${
-                                                        isOCR
+                                                    className={`scan-type ${isOCR
                                                             ? "label-type"
                                                             : "food-type"
-                                                    }`}
+                                                        }`}
                                                 >
 
                                                     {isOCR ? (
